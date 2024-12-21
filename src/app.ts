@@ -12,9 +12,9 @@ function LoggerFactor(logString: string) {
 function WithTemplate(template: string, hookId: string) {
     console.log('3. With Template decorator FACTORY called');
     return function (constructor: any) {
-        console.log('4. With template decorator called');
+        console.log('4. With template decorator called. | template: ' + template + ' | hookId: ' + hookId);
         const hookEl = document.getElementById(hookId);
-        const p = new constructor();
+        const p = new constructor('John', 20, "China");
         if (hookEl) {
             hookEl.innerHTML = template;
             hookEl.querySelector('h1')!.textContent = p.name;
